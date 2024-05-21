@@ -1,0 +1,35 @@
+<h4>Lista</h4>
+
+<div class="mt-2 mb-5">
+  <button class="btn btn-success" (click)="listaInversaAUltimo()">cambiar de primero a ultimo</button>
+</div>
+<ul class="list-group"
+  *ngFor="let character of characterList;
+  let i = index;
+  let isFirst = first;
+  let isLast = last;
+  let isPar = even;
+">
+  <li
+    [ngClass]="{'list-group-item-success':isPar}"
+   class="list-group-item d-flex justify-content-between align-items-center"
+   >
+
+   <div>
+    {{ i + 1 }}.
+    <b>{{character.name}}</b> - <span><b>Power:</b> {{character.power}}</span>
+
+    <span *ngIf="i === 0">
+      El primero
+    </span>
+
+    <span
+      class="list-group-item-success"
+      *ngIf=" i === characterList.length -1"
+    >
+      El último
+    </span>
+   </div>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
+  </li>
+</ul>

@@ -1,0 +1,22 @@
+<h2>Lista de Heroes</h2>
+<div class="d-flex justify-content-between ">
+  <button class="btn btn-outline-danger" type="submit" (click)="removeLastHero()"> Eliminar </button>
+  <select name="" id="">
+    <option value="">Ordenar Alfabeticamente</option>
+    <option value="">inverso</option>
+  </select>
+</div>
+<div *ngIf="deteledHero; else nothing">
+  <div class="alert alert-secondary" role="alert">
+    Eliminaste {{deteledHero}}
+  </div>
+</div>
+
+<ng-template #nothing>
+  <div class="alert alert-danger" role="alert">
+    No hay dana para eliminar
+  </div>
+</ng-template>
+<ul class="mt-2 list-group" *ngFor="let name of heroNames" >
+  <li class="list-group-item">{{name}}</li>
+</ul>
